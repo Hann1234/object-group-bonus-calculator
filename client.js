@@ -162,6 +162,33 @@ function calculateBonuses(employeeList) {
   return EmployeeList;
 }
 
+const bigEarners = employees.filter(employee => {
+  if (employee.reviewRating > 2) {
+    return employee.name;
+  }
+});
+
+const alsoBigEarner = employees.filter(function (employee) {
+  if (employee.reviewRating > 2) {
+    return employee.name;
+  }
+});
+
+const EmployeesWithBonus = function(employeeList) {
+  const bonusPeeps = employeeList.filter(function (employee) {
+    return employee.reviewRating > 2;
+  });
+  let list = [];
+  for (const peep of bonusPeeps) {
+    list.push(peep.name)
+  }
+  return list;
+}
+
+console.log('bigEarners', bigEarners);
+console.log('alsoBigEarners', alsoBigEarner);
+console.log('EmplyeesWithBonus', EmployeesWithBonus(employees));
+
 calculateBonuses(employees);
 
 
